@@ -1,7 +1,7 @@
 import os
 import openai
 def answer(argument):
-    openai.api_key = ""
+    openai.api_key = os.getenv('CHATGPT')
     # argument = "what is your purpose?"
     response = openai.Completion.create(
     model="text-davinci-003",
