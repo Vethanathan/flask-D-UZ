@@ -1,10 +1,7 @@
+<title>Dashboard</title>
+<link rel="icon" href="{{ url_for('static',filename='images/logo.ico') }}">
 
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/yetri.css') }}">
-
-   
-    <title>Valid</title>
-  
-<link href="{{ url_for('static',filename='css/valid.css') }}" rel="stylesheet">
+<link href="{{ url_for('static',filename='css/t.css') }}" rel="stylesheet">
 <!-- <link href="{{ url_for('static',filename='css/temp.css') }}" rel="stylesheet"> -->
 <script defer="defer" src="{{ url_for('static',filename='js/test.js') }}"></script>
 <script src="https://kit.fontawesome.com/51706dcb62.js" crossorigin="anonymous"></script>
@@ -12,7 +9,7 @@
 <nav class="nav">
   <ul class="nav-content">
     <li class="nav-list">
-      <a href="{{ url_for('home') }}" class="link-item ">
+      <a href="{{ url_for('home') }}" class="link-item active">
         <i class="fa-solid fa-house-chimney-crack"></i>
         <span class="link-text">Home</span>
       </a>
@@ -24,9 +21,9 @@
       </a>
     </li>
     <li class="nav-list">
-      <a href="{{ url_for('plaigarism') }}" onclick="delayRedirect(event, '/plaigarism')" class="link-item active">
+      <a href="{{ url_for('plaigarism') }}" onclick="delayRedirect(event, '/plaigarism')" class="link-item">
         <i class="fa-regular fa-file-code"></i>
-        <span class="link-text ">plagiarism</span>
+        <span class="link-text">plagiarism</span>
       </a>
     </li>
     <li class="nav-list">
@@ -36,105 +33,38 @@
       </a>
     </li>
     <li class="nav-list">
-      <a href="#" class="link-item">
-        <i class="bx bxs-user link-icon"></i>
-        <span class="link-text">Profile</span>
+      <a href="/" onclick="delayRedirect(event, '/')" class="link-item">
+        <i class="fa-solid fa-lock"></i>
+        <span class="link-text">Logout</span>
       </a>
     </li>
+    
 
     <span class="indicator"></span>
   </ul>
 </nav>
-
-<link rel="stylesheet" href="{{ url_for('static',filename='css/yetri.css') }}">
-
-   
-<title>Valid</title>
-
-<link href="{{ url_for('static',filename='css/Valid.css') }}" rel="stylesheet">
-<!-- <link href="{{ url_for('static',filename='css/temp.css') }}" rel="stylesheet"> -->
-<script defer="defer" src="{{ url_for('static',filename='js/test.js') }}"></script>
-<script src="https://kit.fontawesome.com/51706dcb62.js" crossorigin="anonymous"></script>
-
-<nav class="nav">
-<ul class="nav-content">
-<li class="nav-list">
-  <a href="{{ url_for('home') }}" class="link-item ">
-    <i class="fa-solid fa-house-chimney-crack"></i>
-    <span class="link-text">Home</span>
-  </a>
-</li>
-<li class="nav-list">
-  <a href="{{ url_for('upload') }}" onclick="delayRedirect(event, '/upload')" class="link-item">
-    <i class="fa-solid fa-upload"></i>
-    <span class="link-text">Upload</span>
-  </a>
-</li>
-<li class="nav-list">
-  <a href="{{ url_for('plaigarism') }}" onclick="delayRedirect(event, '/plaigarism')" class="link-item active">
-    <i class="fa-regular fa-file-code"></i>
-    <span class="link-text ">plagiarism</span>
-  </a>
-</li>
-<li class="nav-list">
-  <a href="{{ url_for('chatbot') }}" onclick="delayRedirect(event, '/chatbot')" class="link-item">
-    <i class="fa-solid fa-robot"></i>
-    <span class="link-text">CHAT - GPT</span>
-  </a>
-</li>
-<li class="nav-list">
-  <a href="#" class="link-item">
-    <i class="bx bxs-user link-icon"></i>
-    <span class="link-text">Profile</span>
-  </a>
-</li>
-
-<span class="indicator"></span>
-</ul>
-</nav>
-<div class="container">
-<div class="grid-item">
-  <table id="keywords" cellspacing="0" cellpadding="0">
-    <thead>
-      <tr>
-        <th>
-          <span>FILE NAME</span>
-        </th>
-        <th>
-          <span>COPIED LINK</span>
-        </th>
-      </tr>
-    </thead>
-    <tbody> {% for key, value in dict.items() %} <tr>
-        <td class="lalign">{{ key }}</td>
-        <td class="lalign"> {% for item in value %} <a href="{{ item }}">{{ item }}</a>
-          <br> {% endfor %}
-        </td>
-      </tr> {% endfor %} </tbody>
-  </table>
-</div>
-<div class="grid-item">
-  
-
-</div>
-<div class="grid-item">
-  <img src="static\images\{{file}}" alt="image">
-</div>
-<div class="grid-item">
-
-</div>
-<div class="grid-item">
-  {{ c1|safe }}
-
-</div>
-<div class="grid-item">
-
-</div>
-<div class="grid-item">
-  {{ c2|safe }}
-</div>
-</div>
-
-
-
-      
+<table>
+  <tr>
+  <td>
+  <table>
+  <thead>
+    <tr class="thead">
+      <th scope="col">Name</th>
+      <th scope="col">Title</th>
+    </tr>
+  </thead>
+  <tbody> {% for key, value in dict.items() %} <tr>
+    <td  class="lalign">{{ key }}</td>
+    <td class="lalign"> {% for item in value %} <a href="{{ item }}">{{ item }}</a>
+      <br> {% endfor %}
+    </td>
+  </tr> {% endfor %} </tbody>
+</table>
+</td>
+<td><img src="static\images\{{file}}" alt="image"></td>
+</tr>
+<tr>
+<td>{{ c1|safe }}</td>
+<td>{{ c2|safe }}</td>
+</tr>
+</table>
